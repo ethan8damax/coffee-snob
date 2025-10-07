@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Muchacho",
+    "city": "Atlanta",
+    "address": "904 Memorial Dr SE, Atlanta, GA 30316",
+    "website": "https://muchacho.com/",
+    "lat": 33.7468,
+    "lng": -84.3580,
+    "desc": "Bold Mexican-inspired roasts, killer cold brews. Vibrant, plant-filled space for urban snobs.",
+    "rating": 4.7
+  },
+  {
+    "id": 2,
+    "name": "The Lab Coffee - West Tampa",
+    "city": "Tampa",
+    "address": "1703 W State St, Tampa, FL 33606",
+    "website": "https://thelabcoffee.com",
+    "lat": 27.9547,
+    "lng": -82.4585,
+    "desc": "Precision espresso lab, single-origins from small farms. Sleek, experimental vibe.",
+    "rating": 4.6
+  },
+  {
+    "id": 3,
+    "name": "Stumptown Coffee Roasters",
+    "city": "Portland",
+    "address": "128 SW 3rd Ave, Portland, OR",
+    "website": "https://stumptowncoffee.com",
+    "lat": 45.5220,
+    "lng": -122.6733,
+    "desc": "Pioneer of direct-trade beans, flawless Hair Bender blends. Iconic, woodsy PNW charm.",
+    "rating": 4.8
+  }
+]
