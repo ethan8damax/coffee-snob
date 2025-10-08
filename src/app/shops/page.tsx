@@ -100,7 +100,7 @@ export default function ShopsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-amber-900 to-amber-200 text-amber-900 p-0"> {/* Cozy gradient */}
+    <main className="min-h-screen p-0">
       <header className="bg-black/20 backdrop-blur-sm text-center py-6 px-8">
         <h1 className="text-4xl font-bold mb-2">☕ Coffee Snob Shops</h1>
         <p className="text-lg opacity-90">Snob-approved spots on the map</p>
@@ -139,7 +139,7 @@ export default function ShopsPage() {
           ))}
         </MapContainer>
         <div className="w-80 bg-white/95 backdrop-blur-sm overflow-y-auto shadow-xl">
-          <h2 className="text-xl font-semibold p-4 border-b text-amber-900">Rate Nearby Spots</h2>
+          <h2 className="text-xl font-semibold p-4 border-b text-black">Rate Nearby Spots</h2>
           {shops.map((shop) => (
             <div
               key={shop.id}
@@ -147,9 +147,9 @@ export default function ShopsPage() {
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.01)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             >
-              <h3 className="font-semibold text-amber-900 mb-1">{shop.name}</h3>
+              <h3 className="font-semibold text-black mb-1">{shop.name}</h3>
               <p className="text-sm text-gray-600 mb-2">{shop.desc}</p>
-              <p className="text-sm font-medium mb-2">Avg: {shop.rating}/5</p>
+              <p className="text-sm text-black font-medium mb-2">Avg: {shop.rating}/5</p>
               <div className="flex flex-col items-start mb-2">
                 <div className="flex mb-2">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -181,7 +181,7 @@ export default function ShopsPage() {
               </div>
               <button
                 onClick={() => alert('Saved! Your snob cred ↑ ☕')}
-                className="w-full bg-amber-900 text-white py-1 rounded text-sm hover:bg-amber-800 transition"
+                className="w-full bg-black text-white py-1 rounded text-sm hover:bg-gray-800 transition"
               >
                 Save Take
               </button>
@@ -199,7 +199,7 @@ export default function ShopsPage() {
       )}
       <Link
         href="/"
-        className="fixed top-4 left-4 bg-white text-amber-900 px-4 py-2 rounded shadow-md hover:bg-gray-100 transition"
+        className="fixed top-4 left-4 bg-white text-black px-4 py-2 rounded shadow-md hover:bg-gray-500 hover:text-white transition"
       >
         ← Home
       </Link>
