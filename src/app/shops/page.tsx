@@ -100,7 +100,7 @@ export default function ShopsPage() {
   );
 
   return (
-    <main className="min-h-screen p-0">
+    <main className="min-h-screen bg-gradient-to-b from-amber-900 to-amber-200 text-amber-900 p-0"> {/* Cozy gradient */}
       <header className="bg-black/20 backdrop-blur-sm text-center py-6 px-8">
         <h1 className="text-4xl font-bold mb-2">☕ Coffee Snob Shops</h1>
         <p className="text-lg opacity-90">Snob-approved spots on the map</p>
@@ -139,54 +139,57 @@ export default function ShopsPage() {
           ))}
         </MapContainer>
         <div className="w-80 bg-white/95 backdrop-blur-sm overflow-y-auto shadow-xl">
-          <h2 className="text-xl font-semibold p-4 border-b text-black">Rate Nearby Spots</h2>
-          {shops.map((shop) => (
-            <div
-              key={shop.id}
-              className="p-4 border-b last:border-b-0 hover:bg-gray-50 transition cursor-pointer"
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.01)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-            >
-              <h3 className="font-semibold text-black mb-1">{shop.name}</h3>
-              <p className="text-sm text-gray-600 mb-2">{shop.desc}</p>
-              <p className="text-sm text-black font-medium mb-2">Avg: {shop.rating}/5</p>
-              <div className="flex flex-col items-start mb-2">
-                <div className="flex mb-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <label key={star} className="cursor-pointer mr-1">
-                      <input
-                        type="radio"
-                        name={`rating-${shop.id}`}
-                        value={star}
-                        checked={Number(ratings[shop.id]) >= star}
-                        onChange={(e) => updateRating(shop.id, parseInt(e.target.value), ratings[`${shop.id}-note`] as string)}
-                        className="hidden"
-                      />
-                      <span
-                        className="text-2xl"
-                        style={{ color: (ratings[shop.id] as number) >= star ? '#FF4500' : '#FFD700' }}
-                      >
-                        ⭐
-                      </span>
-                    </label>
-                  ))}
-                </div>
-                <input
-                  type="text"
-                  placeholder="Quick note (e.g., 'Bold & balanced!')"
-                  value={ratings[`${shop.id}-note`] || ''}
-                  onChange={(e) => updateRating(shop.id, ratings[shop.id] as number, e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded text-black text-sm"
-                />
-              </div>
-              <button
-                onClick={() => alert('Saved! Your snob cred ↑ ☕')}
-                className="w-full bg-black text-white py-1 rounded text-sm hover:bg-gray-800 transition"
+          <h2 className="text-xl font-semibold p-4 border-b text-amber-900">Rate Nearby Spots</h2>
+          {shops.map((shop) => {
+            const userRating = ratings[shop.id] ? Number(ratings[shop.id]) : 0;
+            return (
+              <div
+                key={shop.id}
+                className="p-4 border-b last:border-b-0 hover:bg-gray-50 transition cursor-pointer"
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.01)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               >
-                Save Take
-              </button>
-            </div>
-          ))}
+                <h3 className="font-semibold text-amber-900 mb-1">{shop.name}</h3>
+                <p className="text-sm text-gray-600 mb-2">{shop.desc}</p>
+                <p className="text-sm font-medium mb-2">Avg: {shop.rating}/5</p>
+                <div className="flex flex-col items-start mb-2">
+                  <div className="flex mb-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <label key={star} className="cursor-pointer mr-1">
+                        <input
+                          type="radio"
+                          name={`rating-${shop.id}`}
+                          value={star}
+                          checked={userRating >= star}
+                          onChange={(e) => updateRating(shop.id, parseInt(e.target.value), ratings[`${shop.id}-note`] as string)}
+                          className="hidden"
+                        />
+                        <span
+                          className="text-2xl"
+                          style={{ color: userRating >= star ? '#FF4500' : '#FFD700' }}
+                        >
+                          ⭐
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Quick note (e.g., 'Bold & balanced!')"
+                    value={ratings[`${shop.id}-note`] || ''}
+                    onChange={(e) => updateRating(shop.id, userRating, e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded text-black text-sm"
+                  />
+                </div>
+                <button
+                  onClick={() => alert('Saved! Your snob cred ↑ ☕')}
+                  className="w-full bg-amber-900 text-white py-1 rounded text-sm hover:bg-amber-800 transition"
+                >
+                  Save Take
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
       {error && (
@@ -199,7 +202,7 @@ export default function ShopsPage() {
       )}
       <Link
         href="/"
-        className="fixed top-4 left-4 bg-white text-black px-4 py-2 rounded shadow-md hover:bg-gray-500 hover:text-white transition"
+        className="fixed top-4 left-4 bg-white text-amber-900 px-4 py-2 rounded shadow-md hover:bg-gray-100 transition"
       >
         ← Home
       </Link>
